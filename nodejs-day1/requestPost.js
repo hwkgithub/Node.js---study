@@ -1,9 +1,9 @@
 /*
- * @Description: 
+ * @Description: 获取表单提交的数据
  * @Autor: HWK
  * @Date: 2021-01-15 22:46:13
  * @LastEditors: HWK
- * @LastEditTime: 2021-01-20 15:37:05
+ * @LastEditTime: 2021-01-20 22:15:26
  */
 const http = require('http')
 const querystring = require('querystring')
@@ -54,6 +54,7 @@ request.on('error', (error) => {
     console.log(error)
 })
 
+//因为提交的是表单  要把postData提交过去才算真正的提交
 request.write(postData)
 
 request.end()

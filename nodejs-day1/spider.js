@@ -1,9 +1,9 @@
 /*
- * @Description: 
+ * @Description: 获取网站的样式输入的文字
  * @Autor: HWK
  * @Date: 2021-01-15 22:46:13
  * @LastEditors: HWK
- * @LastEditTime: 2021-01-19 17:52:12
+ * @LastEditTime: 2021-01-20 21:51:19
  */
 var http = require('http')
 var https = require('https')
