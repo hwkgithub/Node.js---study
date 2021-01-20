@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title">
+  <title>Login</title>
+</head>
+<body>
+  <%- include header %>
+  <form class="" action="./users/login" method="post">
+    <label for="">
+      用户名：<input type="text" name="username">
+    </label>
+    <label for="">
+      密码：<input type="password" name="password">
+    </label>
+    <label for="">
+      <input type="submit" name="submit" value="提交">
+    </label>
+  </form>
+</body>
+</html>

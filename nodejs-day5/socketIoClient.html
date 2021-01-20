@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./socket.io.js" charset="utf-8"></script>
+  <title>socketIoClient</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var iosocket = null
+    window.onload = function () {
+      iosocket = io.connect('http://localhost:9000')
+      iosocket.on('connect', function () {
+        iosocket.send('hello, from ioclient')
+      })
+      iosocket.on('message', function (message) {
+        var chatroom = document.querySelector('#chatroom')
+        chatroom.innerHTML += message + '<br/>'
+      })
+      iosocket.on('disconnect', function () {
+        console.log('服务端关闭');
+      })
+
+      function send() {
+        iosocket.send(sayinput.value)
+        sayinput.value = ''
+      }
+      document.onkeyup = function (event) {
+        if (event.keyCode == 13) {
+          send()
+        }
+      }
+      sendbutton.onclick = function () {
+        send()
+      }
+    }
+  </script>
+  <h1>Socket.io</h1>
+  <div id="chatroom" style="width:400px;height:300px;overflow:auto;border:1px solid blue"></div>
+  <input type="text" name="sayinput" id="sayinput" value="">
+  <input type="button" name="send" id="sendbutton" value="发送">
+</body>
+</html>
